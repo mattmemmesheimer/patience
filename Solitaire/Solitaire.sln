@@ -1,0 +1,52 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.31101.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Solitaire", "Solitaire\Solitaire.csproj", "{2D1ED662-15B6-49DC-A90F-77B1069FB78D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Solitaire.Common", "Solitaire.Common\Solitaire.Common.csproj", "{9C2BD978-F189-401B-BC3B-698C6FED8074}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Solitaire.CardStack", "Solitaire.CardStack\Solitaire.CardStack.csproj", "{868BA7FD-593F-4601-8888-614D3825352D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Solitaire.Common.Wpf", "Soliatire.Common.Wpf\Solitaire.Common.Wpf.csproj", "{A36C7B8B-38DA-41AF-969E-47CB7541CC24}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Solitaire.Foundations", "Solitaire.Foundations\Solitaire.Foundations.csproj", "{311BD8C8-D472-40F4-A211-47098DD81A66}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Solitaire.Tableaus", "Solitaire.Tableaus\Solitaire.Tableaus.csproj", "{5999F44E-6486-42B0-8B87-86C519E6D392}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{2D1ED662-15B6-49DC-A90F-77B1069FB78D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2D1ED662-15B6-49DC-A90F-77B1069FB78D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2D1ED662-15B6-49DC-A90F-77B1069FB78D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2D1ED662-15B6-49DC-A90F-77B1069FB78D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9C2BD978-F189-401B-BC3B-698C6FED8074}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9C2BD978-F189-401B-BC3B-698C6FED8074}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9C2BD978-F189-401B-BC3B-698C6FED8074}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9C2BD978-F189-401B-BC3B-698C6FED8074}.Release|Any CPU.Build.0 = Release|Any CPU
+		{868BA7FD-593F-4601-8888-614D3825352D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{868BA7FD-593F-4601-8888-614D3825352D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{868BA7FD-593F-4601-8888-614D3825352D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{868BA7FD-593F-4601-8888-614D3825352D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A36C7B8B-38DA-41AF-969E-47CB7541CC24}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A36C7B8B-38DA-41AF-969E-47CB7541CC24}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A36C7B8B-38DA-41AF-969E-47CB7541CC24}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A36C7B8B-38DA-41AF-969E-47CB7541CC24}.Release|Any CPU.Build.0 = Release|Any CPU
+		{311BD8C8-D472-40F4-A211-47098DD81A66}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{311BD8C8-D472-40F4-A211-47098DD81A66}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{311BD8C8-D472-40F4-A211-47098DD81A66}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{311BD8C8-D472-40F4-A211-47098DD81A66}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5999F44E-6486-42B0-8B87-86C519E6D392}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5999F44E-6486-42B0-8B87-86C519E6D392}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5999F44E-6486-42B0-8B87-86C519E6D392}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5999F44E-6486-42B0-8B87-86C519E6D392}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

@@ -1,0 +1,17 @@
+﻿<!--
+<viewModels1:CardViewModel xmlns:viewModels1="clr-namespace:Soliatire.Common.Wpf.ViewModels"
+                           xmlns:models1="clr-namespace:Solitaire.Common.Models;assembly=Solitaire.Common">
+    <viewModels1:CardViewModel.Card>
+        <models1:Card
+            FaceUp="True"
+            Suit="Diamonds"
+            Value="Seven" />
+    </viewModels1:CardViewModel.Card>
+</viewModels1:CardViewModel>
+-->
+<models:Card 
+    xmlns:models="clr-namespace:Solitaire.Common.Models;assembly=Solitaire.Common"
+    FaceUp="True"
+    Suit="Diamonds"
+    Value="Ace" />
+    
