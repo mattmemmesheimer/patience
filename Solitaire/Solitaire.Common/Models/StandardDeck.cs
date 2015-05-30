@@ -11,7 +11,7 @@ namespace Solitaire.Common.Models
         /// <summary>
         /// Number of cards in the deck.
         /// </summary>
-        public const int NumCards = 52;
+        public static readonly int NumCards = 52;
 
         #endregion
 

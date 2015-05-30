@@ -12,15 +12,6 @@ namespace Solitaire.Common.Factories
     /// </summary>
     public class StandardDeckFactory : IDeckFactory
     {
-        #region Constants
-
-        /// <summary>
-        /// Number of cards in the deck.
-        /// </summary>
-        public static readonly int NumCards = 52;
-
-        #endregion
-
         /// <summary>
         /// Creates a new instance of <see cref="StardDeck"/>.
         /// </summary>
@@ -29,7 +20,7 @@ namespace Solitaire.Common.Factories
         {
             var deck = new StandardDeck
             {
-                Cards = new List<Card>(NumCards)
+                Cards = new List<Card>(StandardDeck.NumCards)
             };
 
             foreach (Card.Values value in Enum.GetValues(typeof(Card.Values)))
