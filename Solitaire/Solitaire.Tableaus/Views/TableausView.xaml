@@ -7,21 +7,17 @@
              mc:Ignorable="d" 
              d:DesignHeight="400" d:DesignWidth="600">
     <Grid>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition />
-            <ColumnDefinition />
-            <ColumnDefinition />
-            <ColumnDefinition />
-            <ColumnDefinition />
-            <ColumnDefinition />
-            <ColumnDefinition />
-        </Grid.ColumnDefinitions>
-        <views:VerticalCardStack DataContext="{Binding Stack1}" />
-        <views:VerticalCardStack Grid.Column="1" DataContext="{Binding Stack2}" />
-        <views:VerticalCardStack Grid.Column="2" DataContext="{Binding Stack3}" />
-        <views:VerticalCardStack Grid.Column="3" DataContext="{Binding Stack4}" />
-        <views:VerticalCardStack Grid.Column="4" DataContext="{Binding Stack5}" />
-        <views:VerticalCardStack Grid.Column="5" DataContext="{Binding Stack6}" />
-        <views:VerticalCardStack Grid.Column="6" DataContext="{Binding Stack7}" />
+        <ItemsControl ItemsSource="{Binding StackViewModels}">
+            <ItemsControl.ItemsPanel>
+                <ItemsPanelTemplate>
+                    <StackPanel Orientation="Horizontal" />
+                </ItemsPanelTemplate>
+            </ItemsControl.ItemsPanel>
+            <ItemsControl.ItemTemplate>
+                <DataTemplate>
+                    <views:VerticalCardStack />
+                </DataTemplate>
+            </ItemsControl.ItemTemplate>
+        </ItemsControl>
     </Grid>
 </UserControl>
