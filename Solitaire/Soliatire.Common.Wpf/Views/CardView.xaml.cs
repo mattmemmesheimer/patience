@@ -1,7 +1,6 @@
-﻿using System.Windows.Controls;
-
-namespace Soliatire.Common.Wpf.Views
+﻿namespace Soliatire.Common.Wpf.Views
 {
+
     /// <summary>
     /// Interaction logic for CardView.xaml
     /// </summary>
@@ -12,4 +11,5 @@ namespace Soliatire.Common.Wpf.Views
             InitializeComponent();
         }
     }
+
 }

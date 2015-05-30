@@ -5,21 +5,22 @@ using Solitaire.Common.Models;
 
 namespace Soliatire.Common.Wpf.Converters
 {
+
     public class CardValueStringConverter : IValueConverter
     {
         public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
         {
-            var cardValue = (Card.Values)value;
+            var cardValue = (Card.Values) value;
             string cardValueStr;
 
             if (cardValue < Card.Values.Jack)
             {
-                var cardIntValue = (int)cardValue;
+                var cardIntValue = (int) cardValue;
                 cardValueStr = cardIntValue.ToString(CultureInfo.InvariantCulture);
             }
             else
             {
-                cardValueStr = Enum.GetName(typeof(Card.Values), cardValue);
+                cardValueStr = Enum.GetName(typeof (Card.Values), cardValue);
                 if (cardValueStr != null)
                 {
                     cardValueStr = cardValueStr.Substring(0, 1).ToUpper();
@@ -29,9 +30,11 @@ namespace Soliatire.Common.Wpf.Converters
             return cardValueStr;
         }
 
-        public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)
+        public object ConvertBack(object value, Type targetType, object parameter,
+            CultureInfo culture)
         {
             return Binding.DoNothing;
         }
     }
+
 }

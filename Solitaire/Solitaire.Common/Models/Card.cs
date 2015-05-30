@@ -2,6 +2,7 @@
 
 namespace Solitaire.Common.Models
 {
+
     /// <summary>
     /// Class representing a playing card.
     /// </summary>
@@ -44,7 +45,7 @@ namespace Solitaire.Common.Models
         private Suits _suit;
         private bool _faceUp;
 
-        #endregion 
+        #endregion
 
         #region Enums
 
@@ -96,4 +97,5 @@ namespace Solitaire.Common.Models
 
         #endregion
     }
+
 }

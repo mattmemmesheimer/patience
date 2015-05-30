@@ -9,9 +9,8 @@
     </viewModels1:CardViewModel.Card>
 </viewModels1:CardViewModel>
 -->
-<models:Card 
+<models:Card
     xmlns:models="clr-namespace:Solitaire.Common.Models;assembly=Solitaire.Common"
     FaceUp="True"
     Suit="Diamonds"
     Value="Ace" />
-    

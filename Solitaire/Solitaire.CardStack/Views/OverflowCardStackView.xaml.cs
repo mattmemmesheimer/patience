@@ -1,10 +1,9 @@
-﻿using Microsoft.Practices.ServiceLocation;
-using Soliatire.Common.Wpf.ViewModels;
-using Solitaire.Common.Models;
+﻿using Solitaire.Common.Models;
 using Solitaire.OverflowCardStack.ViewModels;
 
 namespace Solitaire.OverflowCardStack.Views
 {
+
     /// <summary>
     /// Interaction logic for CardStackView.xaml
     /// </summary>
@@ -17,4 +16,5 @@ namespace Solitaire.OverflowCardStack.Views
             DataContext = new OverflowCardStackViewModel(gameInstance);
         }
     }
+
 }

@@ -1,9 +1,10 @@
 ﻿using System.Collections.Generic;
-using Microsoft.Practices.Prism.Mvvm;
 using System.Linq;
+using Microsoft.Practices.Prism.Mvvm;
 
 namespace Solitaire.Common.Models
 {
+
     /// <summary>
     /// Class represnting an instance of a Klondike Solitaire game.
     /// </summary>
@@ -17,6 +18,39 @@ namespace Solitaire.Common.Models
         public const int NumTableaus = 7;
 
         #endregion
+
+        /// <summary>
+        /// Initializes a new instance of <see cref="SolitaireGameInstance" /> using the
+        /// specified deck of cards.
+        /// </summary>
+        /// <param name="deck">The deck of cards to use.</param>
+        public SolitaireGameInstance(IDeck deck)
+        {
+            deck.Shuffle();
+            Deck = deck;
+            CreateTableaus();
+            CreateOverflowStack();
+        }
+
+        private void CreateTableaus()
+        {
+            Tableaus = new List<Card>[NumTableaus];
+            for (int tableauIndex = 0, rangeIndex = 0; tableauIndex < NumTableaus; tableauIndex++)
+            {
+                var numCards = tableauIndex + 1;
+                Tableaus[tableauIndex] = Deck.Cards.GetRange(rangeIndex, numCards);
+                rangeIndex = rangeIndex + numCards;
+            }
+        }
+
+        private void CreateOverflowStack()
+        {
+            var numCardsInTableaus = 0;
+            Tableaus.ToList().ForEach(t => numCardsInTableaus += t.Count);
+            OverflowStack = Deck.Cards.GetRange(numCardsInTableaus,
+                Deck.Cards.Count - numCardsInTableaus);
+            var i = 5;
+        }
 
         #region Properties
 
@@ -49,39 +83,6 @@ namespace Solitaire.Common.Models
 
         #endregion
 
-        /// <summary>
-        /// Initializes a new instance of <see cref="SolitaireGameInstance"/> using the 
-        /// specified deck of cards.
-        /// </summary>
-        /// <param name="deck">The deck of cards to use.</param>
-        public SolitaireGameInstance(IDeck deck)
-        {
-            deck.Shuffle();
-            Deck = deck;
-            CreateTableaus();
-            CreateOverflowStack();
-        }
-
-        private void CreateTableaus()
-        {
-            Tableaus = new List<Card>[NumTableaus];
-            for (int tableauIndex = 0, rangeIndex = 0; tableauIndex < NumTableaus; tableauIndex++)
-            {
-                int numCards = tableauIndex + 1;
-                Tableaus[tableauIndex] = Deck.Cards.GetRange(rangeIndex, numCards);
-                rangeIndex = rangeIndex + numCards;
-            }
-        }
-
-        private void CreateOverflowStack()
-        {
-            int numCardsInTableaus = 0;
-            Tableaus.ToList<List<Card>>().ForEach(t => numCardsInTableaus += t.Count);
-            OverflowStack = 
-                Deck.Cards.GetRange(numCardsInTableaus, Deck.Cards.Count - numCardsInTableaus);
-            int i = 5;
-        }
-
         #region Fields
 
         private IDeck _deck;
@@ -90,4 +91,5 @@ namespace Solitaire.Common.Models
 
         #endregion
     }
+
 }

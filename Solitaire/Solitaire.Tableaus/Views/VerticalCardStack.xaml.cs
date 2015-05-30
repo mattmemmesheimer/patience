@@ -1,7 +1,6 @@
-﻿using System.Windows.Controls;
-
-namespace Solitaire.Tableaus.Views
+﻿namespace Solitaire.Tableaus.Views
 {
+
     /// <summary>
     /// Interaction logic for VerticalCardStack.xaml
     /// </summary>
@@ -12,4 +11,5 @@ namespace Solitaire.Tableaus.Views
             InitializeComponent();
         }
     }
+
 }

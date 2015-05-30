@@ -15,7 +15,7 @@
             </Grid.ColumnDefinitions>
             <ContentControl
                 regions:RegionManager.RegionName="OverflowCardStackRegion" />
-            <ContentControl 
+            <ContentControl
                 Grid.Column="1"
                 regions:RegionManager.RegionName="FoundationsRegion" />
         </Grid>

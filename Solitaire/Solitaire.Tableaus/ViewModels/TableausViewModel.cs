@@ -1,39 +1,29 @@
-﻿using System.Collections.Generic;
-using System.Collections.ObjectModel;
+﻿using System.Collections.ObjectModel;
 using Microsoft.Practices.Prism.Mvvm;
-using Microsoft.Practices.ServiceLocation;
 using Solitaire.Common.Models;
 
 namespace Solitaire.Tableaus.ViewModels
 {
+
     /// <summary>
     /// Tableaus view model.
     /// </summary>
     public class TableausViewModel : BindableBase
     {
-        #region Properties
+        #region Fields
 
-        /// <summary>
-        /// Collection of <see cref="VerticalCardStackViewModel"/>.
-        /// </summary>
-        public ObservableCollection<VerticalCardStackViewModel> StackViewModels
-        {
-            get { return _stackViewModels; }
-            set { SetProperty(ref _stackViewModels, value);  }
-        }
+        private ObservableCollection<VerticalCardStackViewModel> _stackViewModels;
 
         #endregion
 
         /// <summary>
-        /// Initializes an instance of <see cref="TableausViewModel"/> using the specified
+        /// Initializes an instance of <see cref="TableausViewModel" /> using the specified
         /// game instance.
         /// </summary>
         /// <param name="gameInstance">The solitaire game.</param>
         public TableausViewModel(ISolitaireGameInstance gameInstance)
         {
-            StackViewModels =
-                new ObservableCollection<VerticalCardStackViewModel>();
-    
+            StackViewModels = new ObservableCollection<VerticalCardStackViewModel>();
 
             foreach (var tableau in gameInstance.Tableaus)
             {
@@ -41,10 +31,18 @@ namespace Solitaire.Tableaus.ViewModels
             }
         }
 
-        #region Fields
+        #region Properties
 
-        private ObservableCollection<VerticalCardStackViewModel> _stackViewModels;
+        /// <summary>
+        /// Collection of <see cref="VerticalCardStackViewModel" />.
+        /// </summary>
+        public ObservableCollection<VerticalCardStackViewModel> StackViewModels
+        {
+            get { return _stackViewModels; }
+            set { SetProperty(ref _stackViewModels, value); }
+        }
 
         #endregion
     }
+
 }

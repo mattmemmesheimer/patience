@@ -4,8 +4,15 @@ using Solitaire.Foundations.Views;
 
 namespace Solitaire.Foundations
 {
+
     public class FoundationsModule : IModule
     {
+        #region Fields
+
+        private readonly IRegionViewRegistry _regionViewRegistry;
+
+        #endregion
+
         public FoundationsModule(IRegionViewRegistry regionViewRegistry)
         {
             _regionViewRegistry = regionViewRegistry;
@@ -15,11 +22,6 @@ namespace Solitaire.Foundations
         {
             _regionViewRegistry.RegisterViewWithRegion("FoundationsRegion", typeof (FoundationsView));
         }
-
-        #region Fields
-
-        private readonly IRegionViewRegistry _regionViewRegistry;
-
-        #endregion
     }
+
 }

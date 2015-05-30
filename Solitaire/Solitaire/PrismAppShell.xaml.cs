@@ -1,7 +1,6 @@
-﻿using System.Windows;
-
-namespace Solitaire
+﻿namespace Solitaire
 {
+
     /// <summary>
     /// Interaction logic for PrismAppShell.xaml
     /// </summary>
@@ -12,4 +11,5 @@ namespace Solitaire
             InitializeComponent();
         }
     }
+
 }

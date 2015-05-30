@@ -7,12 +7,13 @@ using Solitaire.Common.Models;
 
 namespace Soliatire.Common.Wpf.Converters
 {
+
     public class CardSuitColorBrushStyleConverter : IValueConverter
     {
         public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
         {
-            var suit = (Card.Suits)value;
-            string brushName = String.Empty;
+            var suit = (Card.Suits) value;
+            var brushName = string.Empty;
             switch (suit)
             {
                 case Card.Suits.Diamonds:
@@ -28,7 +29,7 @@ namespace Soliatire.Common.Wpf.Converters
                     brushName = "SpadesColorBrush";
                     break;
             }
-            var brush = (SolidColorBrush)Application.Current.Resources[brushName];
+            var brush = (SolidColorBrush) Application.Current.Resources[brushName];
             if (brush != null)
             {
                 return brush;
@@ -36,9 +37,11 @@ namespace Soliatire.Common.Wpf.Converters
             return Binding.DoNothing;
         }
 
-        public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)
+        public object ConvertBack(object value, Type targetType, object parameter,
+            CultureInfo culture)
         {
             return Binding.DoNothing;
         }
     }
+
 }

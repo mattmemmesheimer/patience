@@ -6,8 +6,24 @@ using Solitaire.Common.Models;
 
 namespace Solitaire.Tableaus.ViewModels
 {
+
     public class VerticalCardStackViewModel : BindableBase
     {
+        public VerticalCardStackViewModel(List<Card> cards)
+        {
+            Cards = new ObservableCollection<Card>();
+            if (cards.Count > 2)
+            {
+                Cards.AddRange(cards.GetRange(0, cards.Count - 2));
+            }
+            if (cards.Count > 1)
+            {
+                BottomCard = cards[cards.Count - 2];
+            }
+            TopCard = cards[cards.Count - 1];
+            TopCard.FaceUp = true;
+        }
+
         #region Properties
 
         public ObservableCollection<Card> Cards
@@ -30,21 +46,6 @@ namespace Solitaire.Tableaus.ViewModels
 
         #endregion
 
-        public VerticalCardStackViewModel(List<Card> cards)
-        {
-            Cards = new ObservableCollection<Card>();
-            if (cards.Count > 2)
-            {
-                Cards.AddRange(cards.GetRange(0, cards.Count - 2));
-            }
-            if (cards.Count > 1)
-            {
-                BottomCard = cards[cards.Count - 2];
-            }
-            TopCard = cards[cards.Count - 1];
-            TopCard.FaceUp = true;
-        }
-
         #region Fields
 
         private ObservableCollection<Card> _cards;
@@ -53,4 +54,5 @@ namespace Solitaire.Tableaus.ViewModels
 
         #endregion
     }
+
 }

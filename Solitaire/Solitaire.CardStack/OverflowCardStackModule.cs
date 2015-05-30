@@ -4,8 +4,15 @@ using Solitaire.OverflowCardStack.Views;
 
 namespace Solitaire.OverflowCardStack
 {
+
     public class OverflowCardStackModule : IModule
     {
+        #region Fields
+
+        private readonly IRegionViewRegistry _regionViewRegistry;
+
+        #endregion
+
         public OverflowCardStackModule(IRegionViewRegistry regionViewRegistry)
         {
             _regionViewRegistry = regionViewRegistry;
@@ -13,13 +20,9 @@ namespace Solitaire.OverflowCardStack
 
         public void Initialize()
         {
-            _regionViewRegistry.RegisterViewWithRegion("OverflowCardStackRegion", typeof (OverflowCardStackView));
+            _regionViewRegistry.RegisterViewWithRegion("OverflowCardStackRegion",
+                typeof (OverflowCardStackView));
         }
-
-        #region Fields
-
-        private readonly IRegionViewRegistry _regionViewRegistry;
-
-        #endregion
     }
+
 }

@@ -1,11 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 
 namespace Solitaire.Common.Models
 {
+
     /// <summary>
     /// Interface defining a solitaire game instance.
     /// </summary>
@@ -26,4 +23,5 @@ namespace Solitaire.Common.Models
         /// </summary>
         List<Card> OverflowStack { get; set; }
     }
+
 }

@@ -1,19 +1,17 @@
-﻿using Solitaire.Common.Models;
-using System;
+﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using Solitaire.Common.Models;
 
 namespace Solitaire.Common.Factories
 {
+
     /// <summary>
     /// Class representing a standard deck of cards.
     /// </summary>
     public class StandardDeckFactory : IDeckFactory
     {
         /// <summary>
-        /// Creates a new instance of <see cref="StandardDeck"/>.
+        /// Creates a new instance of <see cref="StandardDeck" />.
         /// </summary>
         /// <returns></returns>
         public IDeck CreateDeck()
@@ -23,9 +21,9 @@ namespace Solitaire.Common.Factories
                 Cards = new List<Card>(StandardDeck.NumCards)
             };
 
-            foreach (Card.Values value in Enum.GetValues(typeof(Card.Values)))
+            foreach (Card.Values value in Enum.GetValues(typeof (Card.Values)))
             {
-                foreach (Card.Suits suit in Enum.GetValues(typeof(Card.Suits)))
+                foreach (Card.Suits suit in Enum.GetValues(typeof (Card.Suits)))
                 {
                     var card = new Card
                     {
@@ -39,4 +37,5 @@ namespace Solitaire.Common.Factories
             return deck;
         }
     }
+
 }

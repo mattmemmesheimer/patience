@@ -2,6 +2,7 @@
 
 namespace Solitaire
 {
+
     /// <summary>
     /// Interaction logic for App.xaml
     /// </summary>
@@ -13,6 +14,7 @@ namespace Solitaire
 
             var bootstrapper = new Bootstrapper();
             bootstrapper.Run();
-        }        
+        }
     }
+
 }
