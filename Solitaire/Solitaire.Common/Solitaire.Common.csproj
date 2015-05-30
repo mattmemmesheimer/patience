@@ -50,9 +50,13 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Factories\DeckFactory.cs" />
+    <Compile Include="Factories\IDeckFactory.cs" />
     <Compile Include="Models\BaseModel.cs" />
     <Compile Include="Models\Card.cs" />
     <Compile Include="Models\Deck.cs" />
+    <Compile Include="Models\IDeck.cs" />
+    <Compile Include="Models\ISolitaireGameInstance.cs" />
     <Compile Include="Models\SolitaireGameInstance.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

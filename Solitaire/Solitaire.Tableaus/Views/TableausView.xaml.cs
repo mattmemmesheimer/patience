@@ -9,11 +9,11 @@ namespace Solitaire.Tableaus.Views
     /// </summary>
     public partial class TableausView
     {
-        public TableausView()
+        public TableausView(ISolitaireGameInstance gameInstance)
         {
             InitializeComponent();
 
-            var vm = new TablaeusViewModel();
+            var vm = new TablaeusViewModel(gameInstance);
             DataContext = vm;
         }
     }

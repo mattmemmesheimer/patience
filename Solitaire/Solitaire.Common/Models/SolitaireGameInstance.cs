@@ -3,7 +3,7 @@ using Microsoft.Practices.Prism.Mvvm;
 
 namespace Solitaire.Common.Models
 {
-    public class SolitaireGameInstance : BindableBase
+    public class SolitaireGameInstance : BindableBase, ISolitaireGameInstance
     {
         #region Constants
 
@@ -13,7 +13,7 @@ namespace Solitaire.Common.Models
 
         #region Properties
 
-        public Deck Deck
+        public IDeck Deck
         {
             get { return _deck; }
             set { SetProperty(ref _deck, value); }
@@ -27,17 +27,19 @@ namespace Solitaire.Common.Models
 
         #endregion
 
-        public SolitaireGameInstance()
+        public SolitaireGameInstance(IDeck deck)
         {
-            var deck = Deck.StandardDeck;
             deck.Shuffle();
             Deck = deck;
+            CreateTableaus();
+        }
 
+        private void CreateTableaus()
+        {
             Tableaus = new List<Card>[NumTableaus];
-            int current = 0;
             for (int i = 0; i < NumTableaus; i++)
             {
-                Tableaus[i] = new List<Card>(i+1);
+                Tableaus[i] = new List<Card>(i + 1);
             }
             Tableaus[0].AddRange(Deck.Cards.GetRange(0, 1));
             Tableaus[1].AddRange(Deck.Cards.GetRange(1, 2));
@@ -50,7 +52,7 @@ namespace Solitaire.Common.Models
 
         #region Fields
 
-        private Deck _deck;
+        private IDeck _deck;
         private List<Card>[] _tableaus;
 
         #endregion

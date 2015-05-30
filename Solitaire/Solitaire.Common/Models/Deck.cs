@@ -4,7 +4,7 @@ using Microsoft.Practices.Prism.Mvvm;
 
 namespace Solitaire.Common.Models
 {
-    public class Deck : BindableBase
+    public class Deck : BindableBase, IDeck
     {
         #region Constants
 

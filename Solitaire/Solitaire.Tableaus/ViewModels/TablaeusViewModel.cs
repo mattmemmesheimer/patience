@@ -54,16 +54,15 @@ namespace Solitaire.Tableaus.ViewModels
 
         #endregion
 
-        public TablaeusViewModel()
+        public TablaeusViewModel(ISolitaireGameInstance gameInstance)
         {
-            var instance = ServiceLocator.Current.GetInstance<SolitaireGameInstance>();
-            _stack1 = new VerticalCardStackViewModel(instance.Tableaus[0]);
-            _stack2 = new VerticalCardStackViewModel(instance.Tableaus[1]);
-            _stack3 = new VerticalCardStackViewModel(instance.Tableaus[2]);
-            _stack4 = new VerticalCardStackViewModel(instance.Tableaus[3]);
-            _stack5 = new VerticalCardStackViewModel(instance.Tableaus[4]);
-            _stack6 = new VerticalCardStackViewModel(instance.Tableaus[5]);
-            _stack7 = new VerticalCardStackViewModel(instance.Tableaus[6]);
+            _stack1 = new VerticalCardStackViewModel(gameInstance.Tableaus[0]);
+            _stack2 = new VerticalCardStackViewModel(gameInstance.Tableaus[1]);
+            _stack3 = new VerticalCardStackViewModel(gameInstance.Tableaus[2]);
+            _stack4 = new VerticalCardStackViewModel(gameInstance.Tableaus[3]);
+            _stack5 = new VerticalCardStackViewModel(gameInstance.Tableaus[4]);
+            _stack6 = new VerticalCardStackViewModel(gameInstance.Tableaus[5]);
+            _stack7 = new VerticalCardStackViewModel(gameInstance.Tableaus[6]);
         }
 
         #region Fields

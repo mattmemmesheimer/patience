@@ -7,6 +7,7 @@ using Solitaire.CardStack;
 using Solitaire.Common.Models;
 using Solitaire.Foundations;
 using Solitaire.Tableaus;
+using Solitaire.Common.Factories;
 
 namespace Solitaire
 {
@@ -38,7 +39,12 @@ namespace Solitaire
             base.ConfigureContainer();
 
             Container.RegisterType<IEventAggregator, EventAggregator>(new ContainerControlledLifetimeManager());
-            Container.RegisterType<SolitaireGameInstance>(new ContainerControlledLifetimeManager());
+
+            var deckFactory = new StandardDeckFactory();
+            var deck = deckFactory.CreateDeck();
+            Container.RegisterInstance<IDeck>(deck, new ContainerControlledLifetimeManager());
+
+            Container.RegisterType<ISolitaireGameInstance, SolitaireGameInstance>(new ContainerControlledLifetimeManager());
         }
     }
 }
