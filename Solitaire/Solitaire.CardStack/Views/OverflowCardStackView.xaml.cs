@@ -1,6 +1,7 @@
 ﻿using Microsoft.Practices.ServiceLocation;
 using Soliatire.Common.Wpf.ViewModels;
 using Solitaire.Common.Models;
+using Solitaire.OverflowCardStack.ViewModels;
 
 namespace Solitaire.OverflowCardStack.Views
 {
@@ -9,20 +10,11 @@ namespace Solitaire.OverflowCardStack.Views
     /// </summary>
     public partial class OverflowCardStackView
     {
-        public OverflowCardStackView()
+        public OverflowCardStackView(ISolitaireGameInstance gameInstance)
         {
             InitializeComponent();
 
-            var instance = ServiceLocator.Current.GetInstance<SolitaireGameInstance>();
-
-            var card = instance.Deck.Cards[0];
-
-            var vm = new CardViewModel
-            {
-                Card = card
-            };
-
-            DataContext = vm;
+            DataContext = new OverflowCardStackViewModel(gameInstance);
         }
     }
 }
