@@ -10,9 +10,16 @@ namespace Solitaire.OverflowCardStack.ViewModels
     /// </summary>
     public class OverflowCardStackViewModel : BindableBase
     {
-        #region Fields
+        #region Properties
 
-        private ObservableCollection<Card> _cards;
+        /// <summary>
+        /// Cards in the stack.
+        /// </summary>
+        public ObservableCollection<Card> Cards
+        {
+            get { return _cards; }
+            set { SetProperty(ref _cards, value); }
+        }
 
         #endregion
 
@@ -26,16 +33,9 @@ namespace Solitaire.OverflowCardStack.ViewModels
             Cards = new ObservableCollection<Card>(gameInstance.OverflowStack);
         }
 
-        #region Properties
+        #region Fields
 
-        /// <summary>
-        /// Cards in the stack.
-        /// </summary>
-        public ObservableCollection<Card> Cards
-        {
-            get { return _cards; }
-            set { SetProperty(ref _cards, value); }
-        }
+        private ObservableCollection<Card> _cards;
 
         #endregion
     }

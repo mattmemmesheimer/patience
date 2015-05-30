@@ -7,12 +7,6 @@ namespace Solitaire.Tableaus
 
     public class TableausModule : IModule
     {
-        #region Fields
-
-        private readonly IRegionViewRegistry _regionViewRegistry;
-
-        #endregion
-
         public TableausModule(IRegionViewRegistry regionViewRegistry)
         {
             _regionViewRegistry = regionViewRegistry;
@@ -22,6 +16,12 @@ namespace Solitaire.Tableaus
         {
             _regionViewRegistry.RegisterViewWithRegion("TableausRegion", typeof (TableausView));
         }
+
+        #region Fields
+
+        private readonly IRegionViewRegistry _regionViewRegistry;
+
+        #endregion
     }
 
 }

@@ -7,12 +7,6 @@ namespace Solitaire.OverflowCardStack
 
     public class OverflowCardStackModule : IModule
     {
-        #region Fields
-
-        private readonly IRegionViewRegistry _regionViewRegistry;
-
-        #endregion
-
         public OverflowCardStackModule(IRegionViewRegistry regionViewRegistry)
         {
             _regionViewRegistry = regionViewRegistry;
@@ -23,6 +17,12 @@ namespace Solitaire.OverflowCardStack
             _regionViewRegistry.RegisterViewWithRegion("OverflowCardStackRegion",
                 typeof (OverflowCardStackView));
         }
+
+        #region Fields
+
+        private readonly IRegionViewRegistry _regionViewRegistry;
+
+        #endregion
     }
 
 }

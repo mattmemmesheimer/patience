@@ -16,12 +16,6 @@ namespace Solitaire.Common.Models
 
         #endregion
 
-        #region Fields
-
-        private List<Card> _cards;
-
-        #endregion
-
         #region Properties
 
         /// <summary>
@@ -49,6 +43,12 @@ namespace Solitaire.Common.Models
                 Cards[k] = temp;
             }
         }
+
+        #region Fields
+
+        private List<Card> _cards;
+
+        #endregion
     }
 
 }

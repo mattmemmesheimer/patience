@@ -10,9 +10,16 @@ namespace Solitaire.Tableaus.ViewModels
     /// </summary>
     public class TableausViewModel : BindableBase
     {
-        #region Fields
+        #region Properties
 
-        private ObservableCollection<VerticalCardStackViewModel> _stackViewModels;
+        /// <summary>
+        /// Collection of <see cref="VerticalCardStackViewModel" />.
+        /// </summary>
+        public ObservableCollection<VerticalCardStackViewModel> StackViewModels
+        {
+            get { return _stackViewModels; }
+            set { SetProperty(ref _stackViewModels, value); }
+        }
 
         #endregion
 
@@ -31,16 +38,9 @@ namespace Solitaire.Tableaus.ViewModels
             }
         }
 
-        #region Properties
+        #region Fields
 
-        /// <summary>
-        /// Collection of <see cref="VerticalCardStackViewModel" />.
-        /// </summary>
-        public ObservableCollection<VerticalCardStackViewModel> StackViewModels
-        {
-            get { return _stackViewModels; }
-            set { SetProperty(ref _stackViewModels, value); }
-        }
+        private ObservableCollection<VerticalCardStackViewModel> _stackViewModels;
 
         #endregion
     }
