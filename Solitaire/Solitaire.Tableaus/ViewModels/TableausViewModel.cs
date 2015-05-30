@@ -6,10 +6,16 @@ using Solitaire.Common.Models;
 
 namespace Solitaire.Tableaus.ViewModels
 {
+    /// <summary>
+    /// Tableaus view model.
+    /// </summary>
     public class TableausViewModel : BindableBase
     {
         #region Properties
 
+        /// <summary>
+        /// Collection of <see cref="VerticalCardStackViewModel"/>.
+        /// </summary>
         public ObservableCollection<VerticalCardStackViewModel> StackViewModels
         {
             get { return _stackViewModels; }
@@ -18,9 +24,14 @@ namespace Solitaire.Tableaus.ViewModels
 
         #endregion
 
+        /// <summary>
+        /// Initializes an instance of <see cref="TableausViewModel"/> using the specified
+        /// game instance.
+        /// </summary>
+        /// <param name="gameInstance">The solitaire game.</param>
         public TableausViewModel(ISolitaireGameInstance gameInstance)
         {
-            StackViewModels = 
+            StackViewModels =
                 new ObservableCollection<VerticalCardStackViewModel>();
     
 
