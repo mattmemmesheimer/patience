@@ -3,22 +3,34 @@ using Microsoft.Practices.Prism.Mvvm;
 
 namespace Solitaire.Common.Models
 {
+    /// <summary>
+    /// Class represnting an instance of a Klondike Solitaire game.
+    /// </summary>
     public class SolitaireGameInstance : BindableBase, ISolitaireGameInstance
     {
         #region Constants
 
+        /// <summary>
+        /// Number of tableaus.
+        /// </summary>
         public const int NumTableaus = 7;
 
         #endregion
 
         #region Properties
 
+        /// <summary>
+        /// Deck of cards.
+        /// </summary>
         public IDeck Deck
         {
             get { return _deck; }
             set { SetProperty(ref _deck, value); }
         }
 
+        /// <summary>
+        /// List of tableaus.
+        /// </summary>
         public List<Card>[] Tableaus
         {
             get { return _tableaus; }
@@ -27,6 +39,11 @@ namespace Solitaire.Common.Models
 
         #endregion
 
+        /// <summary>
+        /// Initializes a new instance of <see cref="SolitaireGameInstance"/> using the 
+        /// specified deck of cards.
+        /// </summary>
+        /// <param name="deck">The deck of cards to use.</param>
         public SolitaireGameInstance(IDeck deck)
         {
             deck.Shuffle();
