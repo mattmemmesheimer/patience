@@ -140,9 +140,9 @@
       <Project>{a36c7b8b-38da-41af-969e-47cb7541cc24}</Project>
       <Name>Solitaire.Common.Wpf</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Solitaire.CardStack\Solitaire.CardStack.csproj">
+    <ProjectReference Include="..\Solitaire.CardStack\Solitaire.OverflowCardStack.csproj">
       <Project>{868ba7fd-593f-4601-8888-614d3825352d}</Project>
-      <Name>Solitaire.CardStack</Name>
+      <Name>Solitaire.OverflowCardStack</Name>
     </ProjectReference>
     <ProjectReference Include="..\Solitaire.Common\Solitaire.Common.csproj">
       <Project>{9c2bd978-f189-401b-bc3b-698c6fed8074}</Project>

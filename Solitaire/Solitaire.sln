@@ -7,7 +7,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Solitaire", "Solitaire\Soli
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Solitaire.Common", "Solitaire.Common\Solitaire.Common.csproj", "{9C2BD978-F189-401B-BC3B-698C6FED8074}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Solitaire.CardStack", "Solitaire.CardStack\Solitaire.CardStack.csproj", "{868BA7FD-593F-4601-8888-614D3825352D}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Solitaire.OverflowCardStack", "Solitaire.CardStack\Solitaire.OverflowCardStack.csproj", "{868BA7FD-593F-4601-8888-614D3825352D}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Solitaire.Common.Wpf", "Soliatire.Common.Wpf\Solitaire.Common.Wpf.csproj", "{A36C7B8B-38DA-41AF-969E-47CB7541CC24}"
 EndProject

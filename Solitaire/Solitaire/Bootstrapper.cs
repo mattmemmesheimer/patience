@@ -3,7 +3,7 @@ using Microsoft.Practices.Prism.Modularity;
 using Microsoft.Practices.Prism.PubSubEvents;
 using Microsoft.Practices.Prism.UnityExtensions;
 using Microsoft.Practices.Unity;
-using Solitaire.CardStack;
+using Solitaire.OverflowCardStack;
 using Solitaire.Common.Models;
 using Solitaire.Foundations;
 using Solitaire.Tableaus;
@@ -29,7 +29,7 @@ namespace Solitaire
         {
             base.ConfigureModuleCatalog();
             var moduleCatalog = (ModuleCatalog)ModuleCatalog;
-            moduleCatalog.AddModule(typeof(CardStackModule));
+            moduleCatalog.AddModule(typeof(OverflowCardStackModule));
             moduleCatalog.AddModule(typeof(FoundationsModule));
             moduleCatalog.AddModule(typeof(TableausModule));
         }

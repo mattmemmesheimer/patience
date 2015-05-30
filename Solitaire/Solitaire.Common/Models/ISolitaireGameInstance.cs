@@ -20,5 +20,10 @@ namespace Solitaire.Common.Models
         /// List of tableaus.
         /// </summary>
         List<Card>[] Tableaus { get; set; }
+
+        /// <summary>
+        /// Overflow stack of cards.
+        /// </summary>
+        List<Card> OverflowStack { get; set; }
     }
 }

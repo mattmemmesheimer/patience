@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using Microsoft.Practices.Prism.Mvvm;
+using System.Linq;
 
 namespace Solitaire.Common.Models
 {
@@ -35,7 +36,16 @@ namespace Solitaire.Common.Models
         {
             get { return _tableaus; }
             set { SetProperty(ref _tableaus, value); }
-        } 
+        }
+
+        /// <summary>
+        /// Overflow stack of cards.
+        /// </summary>
+        public List<Card> OverflowStack
+        {
+            get { return _overflowStack; }
+            set { SetProperty(ref _overflowStack, value); }
+        }
 
         #endregion
 
@@ -49,28 +59,34 @@ namespace Solitaire.Common.Models
             deck.Shuffle();
             Deck = deck;
             CreateTableaus();
+            CreateOverflowStack();
         }
 
         private void CreateTableaus()
         {
             Tableaus = new List<Card>[NumTableaus];
-            for (int i = 0; i < NumTableaus; i++)
+            for (int tableauIndex = 0, rangeIndex = 0; tableauIndex < NumTableaus; tableauIndex++)
             {
-                Tableaus[i] = new List<Card>(i + 1);
+                int numCards = tableauIndex + 1;
+                Tableaus[tableauIndex] = Deck.Cards.GetRange(rangeIndex, numCards);
+                rangeIndex = rangeIndex + numCards;
             }
-            Tableaus[0].AddRange(Deck.Cards.GetRange(0, 1));
-            Tableaus[1].AddRange(Deck.Cards.GetRange(1, 2));
-            Tableaus[2].AddRange(Deck.Cards.GetRange(3, 3));
-            Tableaus[3].AddRange(Deck.Cards.GetRange(6, 4));
-            Tableaus[4].AddRange(Deck.Cards.GetRange(10, 5));
-            Tableaus[5].AddRange(Deck.Cards.GetRange(15, 6));
-            Tableaus[6].AddRange(Deck.Cards.GetRange(21, 7));
+        }
+
+        private void CreateOverflowStack()
+        {
+            int numCardsInTableaus = 0;
+            Tableaus.ToList<List<Card>>().ForEach(t => numCardsInTableaus += t.Count);
+            OverflowStack = 
+                Deck.Cards.GetRange(numCardsInTableaus, Deck.Cards.Count - numCardsInTableaus);
+            int i = 5;
         }
 
         #region Fields
 
         private IDeck _deck;
         private List<Card>[] _tableaus;
+        private List<Card> _overflowStack;
 
         #endregion
     }
