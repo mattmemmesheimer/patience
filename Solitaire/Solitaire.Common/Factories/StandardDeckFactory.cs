@@ -13,7 +13,7 @@ namespace Solitaire.Common.Factories
 
         public IDeck CreateDeck()
         {
-            var deck = new Deck
+            var deck = new StandardDeck
             {
                 Cards = new List<Card>(NumCards)
             };
