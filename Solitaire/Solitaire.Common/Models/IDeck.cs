@@ -11,8 +11,6 @@ namespace Solitaire.Common.Models
     /// </summary>
     public interface IDeck
     {
-        
-
         /// <summary>
         /// List of cards in the deck.
         /// </summary>
