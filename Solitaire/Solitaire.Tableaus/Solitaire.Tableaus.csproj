@@ -75,7 +75,7 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="TableausModule.cs" />
-    <Compile Include="ViewModels\TablaeusViewModel.cs" />
+    <Compile Include="ViewModels\TableausViewModel.cs" />
     <Compile Include="ViewModels\VerticalCardStackViewModel.cs" />
     <Compile Include="Views\TableausView.xaml.cs">
       <DependentUpon>TableausView.xaml</DependentUpon>

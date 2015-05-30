@@ -13,7 +13,7 @@ namespace Solitaire.Tableaus.Views
         {
             InitializeComponent();
 
-            var vm = new TablaeusViewModel(gameInstance);
+            var vm = new TableausViewModel(gameInstance);
             DataContext = vm;
         }
     }
