@@ -13,7 +13,7 @@ namespace Solitaire.Common.Factories
     public class StandardDeckFactory : IDeckFactory
     {
         /// <summary>
-        /// Creates a new instance of <see cref="StardDeck"/>.
+        /// Creates a new instance of <see cref="StandardDeck"/>.
         /// </summary>
         /// <returns></returns>
         public IDeck CreateDeck()
