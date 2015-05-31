@@ -36,6 +36,15 @@ namespace Solitaire.OverflowCardStack.ViewModels
             set { SetProperty(ref _dealtCards, value); }
         }
 
+        /// <summary>
+        /// Whether or not the stack of cards is empty.
+        /// </summary>
+        public bool CardsEmpty
+        {
+            get { return _cardsEmpty; }
+            set { SetProperty(ref _cardsEmpty, value); }
+        }
+
         #endregion
 
         #region Commands
@@ -79,6 +88,8 @@ namespace Solitaire.OverflowCardStack.ViewModels
 
             if (_cards.Count == 0)
             {
+                CardsEmpty = true;
+
                 // Reset waste stack.
                 _wasteStack.Reverse();
                 _cards.AddRange(_wasteStack);
@@ -88,6 +99,10 @@ namespace Solitaire.OverflowCardStack.ViewModels
                 TopCard = _cards.Count > 0 ? _cards[_cards.Count - 1] : null;
 
                 return;
+            }
+            if (CardsEmpty)
+            {
+                CardsEmpty = false;
             }
 
             int numToDeal = Math.Min(_cards.Count, 3);
@@ -110,6 +125,7 @@ namespace Solitaire.OverflowCardStack.ViewModels
         private ObservableCollection<Card> _dealtCards;
         private readonly List<Card> _wasteStack;
         private Card _topCard;
+        private bool _cardsEmpty;
 
         #endregion
     }
