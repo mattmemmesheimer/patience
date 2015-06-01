@@ -76,6 +76,7 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="FoundationsModule.cs" />
+    <Compile Include="ViewModels\FoundationsViewModel.cs" />
     <Compile Include="Views\FoundationsView.xaml.cs">
       <DependentUpon>FoundationsView.xaml</DependentUpon>
     </Compile>
