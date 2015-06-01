@@ -17,40 +17,12 @@ namespace Solitaire.Common.Models
         /// </summary>
         public const int NumTableaus = 7;
 
-        #endregion
-
         /// <summary>
-        /// Initializes a new instance of <see cref="SolitaireGameInstance" /> using the
-        /// specified deck of cards.
+        /// Number of foundations.
         /// </summary>
-        /// <param name="deck">The deck of cards to use.</param>
-        public SolitaireGameInstance(IDeck deck)
-        {
-            deck.Shuffle();
-            Deck = deck;
-            CreateTableaus();
-            CreateOverflowStack();
-        }
+        public const int NumFoundations = 4;
 
-        private void CreateTableaus()
-        {
-            Tableaus = new List<Card>[NumTableaus];
-            for (int tableauIndex = 0, rangeIndex = 0; tableauIndex < NumTableaus; tableauIndex++)
-            {
-                var numCards = tableauIndex + 1;
-                Tableaus[tableauIndex] = Deck.Cards.GetRange(rangeIndex, numCards);
-                rangeIndex = rangeIndex + numCards;
-            }
-        }
-
-        private void CreateOverflowStack()
-        {
-            var numCardsInTableaus = 0;
-            Tableaus.ToList().ForEach(t => numCardsInTableaus += t.Count);
-            OverflowStack = Deck.Cards.GetRange(numCardsInTableaus,
-                Deck.Cards.Count - numCardsInTableaus);
-            var i = 5;
-        }
+        #endregion
 
         #region Properties
 
@@ -81,13 +53,60 @@ namespace Solitaire.Common.Models
             set { SetProperty(ref _overflowStack, value); }
         }
 
+        /// <summary>
+        /// List of tableaus.
+        /// </summary>
+        public List<Card>[] Foundations
+        {
+            get { return _foundations; }
+            set { SetProperty(ref _foundations, value); }
+        }
+
         #endregion
+
+        /// <summary>
+        /// Initializes a new instance of <see cref="SolitaireGameInstance" /> using the
+        /// specified deck of cards.
+        /// </summary>
+        /// <param name="deck">The deck of cards to use.</param>
+        public SolitaireGameInstance(IDeck deck)
+        {
+            deck.Shuffle();
+            Deck = deck;
+            CreateTableaus();
+            CreateOverflowStack();
+            Foundations = new List<Card>[NumFoundations];
+            for (int i = 0; i < NumFoundations; i++)
+            {
+                Foundations[i] = new List<Card>();
+            }
+        }
+
+        private void CreateTableaus()
+        {
+            Tableaus = new List<Card>[NumTableaus];
+            for (int tableauIndex = 0, rangeIndex = 0; tableauIndex < NumTableaus; tableauIndex++)
+            {
+                var numCards = tableauIndex + 1;
+                Tableaus[tableauIndex] = Deck.Cards.GetRange(rangeIndex, numCards);
+                rangeIndex = rangeIndex + numCards;
+            }
+        }
+
+        private void CreateOverflowStack()
+        {
+            var numCardsInTableaus = 0;
+            Tableaus.ToList().ForEach(t => numCardsInTableaus += t.Count);
+            OverflowStack = Deck.Cards.GetRange(numCardsInTableaus,
+                Deck.Cards.Count - numCardsInTableaus);
+        }
 
         #region Fields
 
         private IDeck _deck;
         private List<Card>[] _tableaus;
         private List<Card> _overflowStack;
+        private List<Card>[] _foundations;
 
         #endregion
     }

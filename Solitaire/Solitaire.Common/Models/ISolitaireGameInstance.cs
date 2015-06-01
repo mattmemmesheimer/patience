@@ -22,6 +22,11 @@ namespace Solitaire.Common.Models
         /// Overflow stack of cards.
         /// </summary>
         List<Card> OverflowStack { get; set; }
+
+        /// <summary>
+        /// List of foundations.
+        /// </summary>
+        List<Card>[] Foundations { get; set; }
     }
 
 }
