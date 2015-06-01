@@ -134,7 +134,7 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Soliatire.Common.Wpf\Solitaire.Common.Wpf.csproj">
+    <ProjectReference Include="..\Solitaire.Common.Wpf\Solitaire.Common.Wpf.csproj">
       <Project>{a36c7b8b-38da-41af-969e-47cb7541cc24}</Project>
       <Name>Solitaire.Common.Wpf</Name>
     </ProjectReference>
