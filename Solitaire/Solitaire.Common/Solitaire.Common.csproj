@@ -53,6 +53,7 @@
     <Compile Include="Factories\StandardDeckFactory.cs" />
     <Compile Include="Factories\IDeckFactory.cs" />
     <Compile Include="Models\Card.cs" />
+    <Compile Include="Models\Foundation.cs" />
     <Compile Include="Models\StandardDeck.cs" />
     <Compile Include="Models\IDeck.cs" />
     <Compile Include="Models\ISolitaireGameInstance.cs" />

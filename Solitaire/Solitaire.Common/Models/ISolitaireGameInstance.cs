@@ -26,7 +26,7 @@ namespace Solitaire.Common.Models
         /// <summary>
         /// List of foundations.
         /// </summary>
-        List<Card>[] Foundations { get; set; }
+        Foundation[] Foundations { get; set; }
     }
 
 }

@@ -56,7 +56,7 @@ namespace Solitaire.Common.Models
         /// <summary>
         /// List of tableaus.
         /// </summary>
-        public List<Card>[] Foundations
+        public Foundation[] Foundations
         {
             get { return _foundations; }
             set { SetProperty(ref _foundations, value); }
@@ -75,10 +75,10 @@ namespace Solitaire.Common.Models
             Deck = deck;
             CreateTableaus();
             CreateOverflowStack();
-            Foundations = new List<Card>[NumFoundations];
+            Foundations = new Foundation[NumFoundations];
             for (int i = 0; i < NumFoundations; i++)
             {
-                Foundations[i] = new List<Card>();
+                Foundations[i] = new Foundation();
             }
         }
 
@@ -106,7 +106,7 @@ namespace Solitaire.Common.Models
         private IDeck _deck;
         private List<Card>[] _tableaus;
         private List<Card> _overflowStack;
-        private List<Card>[] _foundations;
+        private Foundation[] _foundations;
 
         #endregion
     }

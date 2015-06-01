@@ -1,4 +1,5 @@
-﻿using Microsoft.Practices.Prism.Mvvm;
+﻿using System.Collections.Generic;
+using Microsoft.Practices.Prism.Mvvm;
 using Solitaire.Common.Models;
 
 namespace Solitaire.Foundations.ViewModels
@@ -7,7 +8,7 @@ namespace Solitaire.Foundations.ViewModels
     {
         #region Properties
 
-
+        public List<FoundationViewModel> Foundations { get; set; }
 
         #endregion
 
@@ -18,12 +19,14 @@ namespace Solitaire.Foundations.ViewModels
         /// <param name="gameInstance">The solitaire game.</param>
         public FoundationsViewModel(ISolitaireGameInstance gameInstance)
         {
-
+            Foundations = new List<FoundationViewModel>(gameInstance.Foundations.Length);
+            foreach (var foundation in gameInstance.Foundations)
+            {
+                Foundations.Add(new FoundationViewModel(foundation));
+            }
         }
 
         #region Fields
-
-
 
         #endregion
     }

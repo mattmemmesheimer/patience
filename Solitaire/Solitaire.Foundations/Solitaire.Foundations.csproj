@@ -77,8 +77,12 @@
     </ApplicationDefinition>
     <Compile Include="FoundationsModule.cs" />
     <Compile Include="ViewModels\FoundationsViewModel.cs" />
+    <Compile Include="ViewModels\FoundationViewModel.cs" />
     <Compile Include="Views\FoundationsView.xaml.cs">
       <DependentUpon>FoundationsView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\FoundationView.xaml.cs">
+      <DependentUpon>FoundationView.xaml</DependentUpon>
     </Compile>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
@@ -93,6 +97,10 @@
       <SubType>Code</SubType>
     </Compile>
     <Page Include="Views\FoundationsView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\FoundationView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

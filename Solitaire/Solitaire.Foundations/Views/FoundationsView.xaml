@@ -3,37 +3,21 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:views="clr-namespace:Solitaire.Foundations.Views"
              mc:Ignorable="d"
              d:DesignHeight="300" d:DesignWidth="600">
     <Grid>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="25*" />
-            <ColumnDefinition Width="25*" />
-            <ColumnDefinition Width="25*" />
-            <ColumnDefinition Width="25*" />
-        </Grid.ColumnDefinitions>
-        <Border
-            BorderBrush="Gray"
-            BorderThickness="2"
-            CornerRadius="10"
-            Margin="10 " />
-        <Border
-            Grid.Column="1"
-            BorderBrush="Gray"
-            BorderThickness="2"
-            CornerRadius="10"
-            Margin="10 " />
-        <Border
-            Grid.Column="2"
-            BorderBrush="Gray"
-            BorderThickness="2"
-            CornerRadius="10"
-            Margin="10 " />
-        <Border
-            Grid.Column="3"
-            BorderBrush="Gray"
-            BorderThickness="2"
-            CornerRadius="10"
-            Margin="10 " />
+        <ItemsControl ItemsSource="{Binding Foundations}">
+            <ItemsControl.ItemsPanel>
+                <ItemsPanelTemplate>
+                    <StackPanel Orientation="Horizontal" />
+                </ItemsPanelTemplate>
+            </ItemsControl.ItemsPanel>
+            <ItemsControl.ItemTemplate>
+                <DataTemplate>
+                    <views:FoundationView />
+                </DataTemplate>
+            </ItemsControl.ItemTemplate>
+        </ItemsControl>
     </Grid>
 </UserControl>
