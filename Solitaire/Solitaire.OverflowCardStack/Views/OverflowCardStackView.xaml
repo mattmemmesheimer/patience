@@ -1,0 +1,53 @@
+﻿<UserControl x:Class="Solitaire.OverflowCardStack.Views.OverflowCardStackView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:views="clr-namespace:Soliatire.Common.Wpf.Views;assembly=Soliatire.Common.Wpf"
+             xmlns:converters="clr-namespace:Soliatire.Common.Wpf.Converters;assembly=Soliatire.Common.Wpf"
+             mc:Ignorable="d"
+             d:DesignHeight="300" d:DesignWidth="300">
+    <Grid>
+        <Grid.Resources>
+            <BooleanToVisibilityConverter x:Key="BooleanToVisibilityConverter" />
+            <converters:InverseBooleanToVisibilityConverter x:Key="InverseBooleanToVisibilityConverter" />
+        </Grid.Resources>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="25*" />
+            <ColumnDefinition Width="75*" />
+        </Grid.ColumnDefinitions>
+        <Button 
+            Visibility="{Binding CardsEmpty,Converter={StaticResource InverseBooleanToVisibilityConverter}}"
+            Command="{Binding DealStackCommand}">
+            <Button.Template>
+                <ControlTemplate TargetType="{x:Type Button}">
+                    <views:CardView
+                        DataContext="{Binding TopCard}" 
+                        Margin="10"
+                        Cursor="Hand"
+                        HorizontalAlignment="Stretch"
+                        VerticalAlignment="Stretch"
+                        x:Name="TopCardView"/>
+                </ControlTemplate>
+            </Button.Template>
+        </Button>
+        <Button 
+            Visibility="{Binding CardsEmpty,Converter={StaticResource BooleanToVisibilityConverter}}"
+            Grid.Column="0"
+            Command="{Binding DealStackCommand}"
+            VerticalAlignment="Center"
+            HorizontalAlignment="Center">
+            <Button.Template>
+                <ControlTemplate TargetType="{x:Type Button}">
+                     <TextBlock 
+                        Margin="10"
+                        Text="Empty"
+                        Cursor="Hand" />
+                </ControlTemplate>
+            </Button.Template>
+        </Button>
+        <Grid Grid.Column="1">
+            <views:CardStackView Cards="{Binding DealtCards, Mode=TwoWay}" />
+        </Grid>
+    </Grid>
+</UserControl>
