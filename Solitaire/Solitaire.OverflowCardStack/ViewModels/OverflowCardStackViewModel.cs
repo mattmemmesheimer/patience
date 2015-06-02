@@ -16,6 +16,12 @@ namespace Solitaire.OverflowCardStack.ViewModels
     /// </summary>
     public class OverflowCardStackViewModel : BindableBase
     {
+        #region Constants
+
+        public static readonly int NumCardsPerDeal = 3;
+
+        #endregion
+
         #region Properties
 
         /// <summary>
@@ -105,7 +111,7 @@ namespace Solitaire.OverflowCardStack.ViewModels
                 CardsEmpty = false;
             }
 
-            int numToDeal = Math.Min(_cards.Count, 3);
+            int numToDeal = Math.Min(_cards.Count, NumCardsPerDeal);
             int index = _cards.Count - numToDeal;
 
             // Deal the next cards.
