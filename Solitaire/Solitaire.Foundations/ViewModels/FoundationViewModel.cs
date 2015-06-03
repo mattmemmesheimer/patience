@@ -1,5 +1,4 @@
-﻿using System.Collections.Generic;
-using Microsoft.Practices.Prism.Mvvm;
+﻿using Microsoft.Practices.Prism.Mvvm;
 using Solitaire.Common.Models;
 
 namespace Solitaire.Foundations.ViewModels
@@ -8,6 +7,9 @@ namespace Solitaire.Foundations.ViewModels
     {
         #region Properties
 
+        /// <summary>
+        /// Top card in the foundation.
+        /// </summary>
         public Card TopCard
         {
             get { return _topCard; }
@@ -27,14 +29,28 @@ namespace Solitaire.Foundations.ViewModels
 
         public FoundationViewModel(IFoundation foundation)
         {
-            _cards = new List<Card>(foundation.Cards);
-            CardsEmpty = _cards.Count == 0;
-            TopCard = CardsEmpty ? null : _cards[_cards.Count - 1];
+            CardsEmpty = foundation.Cards.Count == 0;
+            TopCard = foundation.TopCard;
+            _foundation = foundation;
+        }
+
+        public bool AddCard(Card card)
+        {
+            var accepted = _foundation.AddCard(card);
+            if (accepted)
+            {
+                if (CardsEmpty)
+                {
+                    CardsEmpty = false;
+                }
+                TopCard = _foundation.TopCard;
+            }
+            return accepted;
         }
 
         #region Fields
 
-        private List<Card> _cards;
+        private readonly IFoundation _foundation;
         private Card _topCard;
         private bool _cardsEmpty;
 

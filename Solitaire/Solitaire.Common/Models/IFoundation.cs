@@ -13,6 +13,11 @@ namespace Solitaire.Common.Models
         List<Card> Cards { get; set; }
 
         /// <summary>
+        /// Top card in the foundation.
+        /// </summary>
+        Card TopCard { get; }
+
+        /// <summary>
         /// Attempts to add a card to this foundation.
         /// </summary>
         /// <param name="card">Card to add.</param>

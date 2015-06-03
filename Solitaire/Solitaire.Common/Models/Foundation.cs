@@ -13,6 +13,17 @@ namespace Solitaire.Common.Models
         public List<Card> Cards { get; set; }
 
         /// <summary>
+        /// Top card in the foundation.
+        /// </summary>
+        /// <remarks>
+        /// Can be null if the foundation is empty.
+        /// </remarks>
+        public Card TopCard
+        {
+            get { return Cards.Count == 0 ? null : Cards[Cards.Count - 1]; }
+        }
+
+        /// <summary>
         /// Initializes a new instance of <see cref="Foundation"/>.
         /// </summary>
         public Foundation()
