@@ -47,7 +47,11 @@
             </Button.Template>
         </Button>
         <Grid Grid.Column="1">
-            <views:CardStackView Cards="{Binding DealtCards, Mode=TwoWay}" />
+            <views:CardStackView Cards="{Binding DealtCards, Mode=TwoWay}">
+                <views:CardStackView.InputBindings>
+                    <MouseBinding Gesture="LeftDoubleClick" Command="{Binding SendCardToFoundationCommand}" />
+                </views:CardStackView.InputBindings>
+            </views:CardStackView>
         </Grid>
     </Grid>
 </UserControl>

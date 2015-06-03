@@ -6,6 +6,8 @@ using System.Windows.Input;
 using Microsoft.Practices.Prism;
 using Microsoft.Practices.Prism.Commands;
 using Microsoft.Practices.Prism.Mvvm;
+using Microsoft.Practices.Prism.PubSubEvents;
+using Solitaire.Common.Events;
 using Solitaire.Common.Models;
 
 namespace Solitaire.OverflowCardStack.ViewModels
@@ -60,6 +62,11 @@ namespace Solitaire.OverflowCardStack.ViewModels
         /// </summary>
         public ICommand DealStackCommand { get; set; }
 
+        /// <summary>
+        /// Command to send the card on top of the dealt stack to a foundation.
+        /// </summary>
+        public ICommand SendCardToFoundationCommand { get; set; }
+
         #endregion
 
         /// <summary>
@@ -67,15 +74,18 @@ namespace Solitaire.OverflowCardStack.ViewModels
         /// game instance.
         /// </summary>
         /// <param name="gameInstance">The solitaire game.</param>
-        public OverflowCardStackViewModel(ISolitaireGameInstance gameInstance)
+        /// <param name="eventAggregator">Event aggregator.</param>
+        public OverflowCardStackViewModel(ISolitaireGameInstance gameInstance, IEventAggregator eventAggregator)
         {
             var stack = gameInstance.OverflowStack;
+            _eventAggregator = eventAggregator;
             _cards = new List<Card>(stack);
             _wasteStack = new List<Card>();
             DealtCards = new ObservableCollection<Card>();
             TopCard = stack[stack.Count - 1];
 
             DealStackCommand = new DelegateCommand(DealStack);
+            SendCardToFoundationCommand = new DelegateCommand(SendCardToFoundation);
         }
 
         /// <summary>
@@ -125,6 +135,16 @@ namespace Solitaire.OverflowCardStack.ViewModels
             TopCard = _cards.Count > 0 ? _cards[_cards.Count - 1] : null;
         }
 
+        private void SendCardToFoundation()
+        {
+            if (DealtCards.Count < 0)
+            {
+                return;
+            }
+            var card = DealtCards[DealtCards.Count - 1];
+            _eventAggregator.GetEvent<CardTransferEvent>().Publish(card);
+        }
+
         #region Fields
 
         private readonly List<Card> _cards;
@@ -132,6 +152,7 @@ namespace Solitaire.OverflowCardStack.ViewModels
         private readonly List<Card> _wasteStack;
         private Card _topCard;
         private bool _cardsEmpty;
+        private readonly IEventAggregator _eventAggregator;
 
         #endregion
     }

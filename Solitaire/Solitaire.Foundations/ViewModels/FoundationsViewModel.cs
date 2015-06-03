@@ -1,5 +1,7 @@
 ﻿using System.Collections.Generic;
 using Microsoft.Practices.Prism.Mvvm;
+using Microsoft.Practices.Prism.PubSubEvents;
+using Solitaire.Common.Events;
 using Solitaire.Common.Models;
 
 namespace Solitaire.Foundations.ViewModels
@@ -17,16 +19,27 @@ namespace Solitaire.Foundations.ViewModels
         /// game instance.
         /// </summary>
         /// <param name="gameInstance">The solitaire game.</param>
-        public FoundationsViewModel(ISolitaireGameInstance gameInstance)
+        /// <param name="eventAggregator">Event aggregator.</param>
+        public FoundationsViewModel(ISolitaireGameInstance gameInstance, IEventAggregator eventAggregator)
         {
+            _eventAggregator = eventAggregator;
             Foundations = new List<FoundationViewModel>(gameInstance.Foundations.Length);
             foreach (var foundation in gameInstance.Foundations)
             {
                 Foundations.Add(new FoundationViewModel(foundation));
             }
+
+            _eventAggregator.GetEvent<CardTransferEvent>().Subscribe(AcceptCard);
+        }
+
+        private void AcceptCard(Card card)
+        {
+
         }
 
         #region Fields
+
+        private readonly IEventAggregator _eventAggregator;
 
         #endregion
     }

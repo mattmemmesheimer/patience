@@ -1,4 +1,5 @@
-﻿using Solitaire.Common.Models;
+﻿using Microsoft.Practices.Prism.PubSubEvents;
+using Solitaire.Common.Models;
 using Solitaire.OverflowCardStack.ViewModels;
 
 namespace Solitaire.OverflowCardStack.Views
@@ -9,11 +10,11 @@ namespace Solitaire.OverflowCardStack.Views
     /// </summary>
     public partial class OverflowCardStackView
     {
-        public OverflowCardStackView(ISolitaireGameInstance gameInstance)
+        public OverflowCardStackView(ISolitaireGameInstance gameInstance, IEventAggregator eventAggregator)
         {
             InitializeComponent();
 
-            DataContext = new OverflowCardStackViewModel(gameInstance);
+            DataContext = new OverflowCardStackViewModel(gameInstance, eventAggregator);
         }
     }
 

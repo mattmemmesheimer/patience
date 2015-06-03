@@ -1,4 +1,5 @@
-﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+﻿using Microsoft.Practices.Prism.PubSubEvents;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Solitaire.Common.Factories;
 using Solitaire.Common.Models;
 using Solitaire.OverflowCardStack.ViewModels;
@@ -14,7 +15,8 @@ namespace Solitaire.OverflowCardStack.Test
             IDeckFactory deckFactory = new StandardDeckFactory();
             IDeck deck = deckFactory.CreateDeck();
             ISolitaireGameInstance game = new SolitaireGameInstance(deck);
-            var viewModel = new OverflowCardStackViewModel(game);
+            IEventAggregator eventAggregator = new EventAggregator();
+            var viewModel = new OverflowCardStackViewModel(game, eventAggregator);
 
             // Top card of the undealt stack should be the last card in the overflow stack array.
             Assert.AreEqual(viewModel.TopCard, game.OverflowStack[game.OverflowStack.Count - 1]);
@@ -28,7 +30,8 @@ namespace Solitaire.OverflowCardStack.Test
             IDeckFactory deckFactory = new StandardDeckFactory();
             IDeck deck = deckFactory.CreateDeck();
             ISolitaireGameInstance game = new SolitaireGameInstance(deck);
-            var viewModel = new OverflowCardStackViewModel(game);
+            IEventAggregator eventAggregator = new EventAggregator();
+            var viewModel = new OverflowCardStackViewModel(game, eventAggregator);
 
             // NumCardsPerDeal cards should be dealt.
             viewModel.DealStackCommand.Execute(null);
