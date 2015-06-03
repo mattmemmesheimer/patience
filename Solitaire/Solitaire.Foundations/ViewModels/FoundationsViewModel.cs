@@ -29,12 +29,16 @@ namespace Solitaire.Foundations.ViewModels
                 Foundations.Add(new FoundationViewModel(foundation));
             }
 
-            _eventAggregator.GetEvent<CardTransferEvent>().Subscribe(AcceptCard);
+            _eventAggregator.GetEvent<CardTransferRequestEvent>().Subscribe(AcceptCard);
         }
 
         private void AcceptCard(Card card)
         {
+            var result = true;
 
+            // TODO: Decide if the card transfer is valid.
+
+            _eventAggregator.GetEvent<CardTransferResponseEvent>().Publish(result);
         }
 
         #region Fields

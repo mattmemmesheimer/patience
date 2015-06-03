@@ -63,7 +63,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Events\CardTransferEvent.cs" />
+    <Compile Include="Events\CardTransferRequestEvent.cs" />
+    <Compile Include="Events\CardTransferResponseEvent.cs" />
     <Compile Include="Factories\StandardDeckFactory.cs" />
     <Compile Include="Factories\IDeckFactory.cs" />
     <Compile Include="Models\Card.cs" />

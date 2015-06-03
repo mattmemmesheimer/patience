@@ -142,7 +142,27 @@ namespace Solitaire.OverflowCardStack.ViewModels
                 return;
             }
             var card = DealtCards[DealtCards.Count - 1];
-            _eventAggregator.GetEvent<CardTransferEvent>().Publish(card);
+
+            // Start a card transfer request.
+            _eventAggregator.GetEvent<CardTransferRequestEvent>().Publish(card);
+            // Wait for the response of the request.
+            _eventAggregator.GetEvent<CardTransferResponseEvent>().Subscribe(
+                SendCardToFoundationResult);
+        }
+
+        private void SendCardToFoundationResult(bool result)
+        {
+            _eventAggregator.GetEvent<CardTransferResponseEvent>().Unsubscribe(
+                SendCardToFoundationResult);
+            if (result)
+            {
+                // Transfer the card.
+                int i = 5;
+            }
+            else
+            {
+                // Invalid transfer.
+            }
         }
 
         #region Fields
