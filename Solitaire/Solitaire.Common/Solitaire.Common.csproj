@@ -64,7 +64,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Events\CardTransferRequestEvent.cs" />
+    <Compile Include="Events\CardTransferRequestEventArgs.cs" />
     <Compile Include="Events\CardTransferResponseEvent.cs" />
+    <Compile Include="Events\CardTransferResponseEventArgs.cs" />
     <Compile Include="Factories\StandardDeckFactory.cs" />
     <Compile Include="Factories\IDeckFactory.cs" />
     <Compile Include="Models\Card.cs" />

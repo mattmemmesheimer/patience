@@ -6,7 +6,7 @@ namespace Solitaire.Common.Events
     /// Event raised in response to a <see cref="CardTransferRequestEvent"/>.
     /// The result is true if the card transfer is valid, false otherwise.
     /// </summary>
-    public class CardTransferResponseEvent : PubSubEvent<bool>
+    public class CardTransferResponseEvent : PubSubEvent<CardTransferResponseEventArgs>
     {
     }
 }

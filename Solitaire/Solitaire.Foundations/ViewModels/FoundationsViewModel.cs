@@ -27,12 +27,17 @@ namespace Solitaire.Foundations.ViewModels
             _eventAggregator.GetEvent<CardTransferRequestEvent>().Subscribe(AcceptCard);
         }
 
-        private void AcceptCard(Card card)
+        private void AcceptCard(CardTransferRequestEventArgs request)
         {
-            var result = true;
+            var accepted = true;
 
             // TODO: Decide if the card transfer is valid.
 
+            var result = new CardTransferResponseEventArgs
+            {
+                Card = request.Card,
+                Accepted = accepted
+            };
             _eventAggregator.GetEvent<CardTransferResponseEvent>().Publish(result);
         }
 

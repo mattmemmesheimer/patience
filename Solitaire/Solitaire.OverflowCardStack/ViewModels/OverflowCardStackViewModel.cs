@@ -144,17 +144,21 @@ namespace Solitaire.OverflowCardStack.ViewModels
             var card = DealtCards[DealtCards.Count - 1];
 
             // Start a card transfer request.
-            _eventAggregator.GetEvent<CardTransferRequestEvent>().Publish(card);
-            // Wait for the response of the request.
+            var request = new CardTransferRequestEventArgs
+            {
+                Card = card
+            };
+            _eventAggregator.GetEvent<CardTransferRequestEvent>().Publish(request);
+            // Listen for the response of the request.
             _eventAggregator.GetEvent<CardTransferResponseEvent>().Subscribe(
                 SendCardToFoundationResult);
         }
 
-        private void SendCardToFoundationResult(bool result)
+        private void SendCardToFoundationResult(CardTransferResponseEventArgs response)
         {
             _eventAggregator.GetEvent<CardTransferResponseEvent>().Unsubscribe(
                 SendCardToFoundationResult);
-            if (result)
+            if (response.Accepted)
             {
                 // Transfer the card.
                 int i = 5;
