@@ -149,10 +149,12 @@ namespace Solitaire.OverflowCardStack.ViewModels
             {
                 Card = card
             };
-            _eventAggregator.GetEvent<CardTransferRequestEvent>().Publish(request);
+
             // Listen for the response of the request.
             _eventAggregator.GetEvent<CardTransferResponseEvent>().Subscribe(
                 SendCardToFoundationResult);
+            // Make the request.
+            _eventAggregator.GetEvent<CardTransferRequestEvent>().Publish(request);
         }
 
         private void SendCardToFoundationResult(CardTransferResponseEventArgs response)
