@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Diagnostics;
 using System.Linq;
 using System.Windows.Input;
 using Microsoft.Practices.Prism;
@@ -161,11 +162,13 @@ namespace Solitaire.OverflowCardStack.ViewModels
             if (response.Accepted)
             {
                 // Transfer the card.
-                int i = 5;
+                Debug.WriteLine("accepted");
+                DealtCards.Remove(response.Card);
             }
             else
             {
                 // Invalid transfer.
+                Debug.WriteLine("rejected");
             }
         }
 

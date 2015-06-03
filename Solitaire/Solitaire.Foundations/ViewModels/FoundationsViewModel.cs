@@ -10,6 +10,9 @@ namespace Solitaire.Foundations.ViewModels
     {
         #region Properties
 
+        /// <summary>
+        /// Foundations.
+        /// </summary>
         public IDictionary<Card.Suits, IFoundation> Foundations { get; set; }
 
         #endregion
@@ -29,10 +32,9 @@ namespace Solitaire.Foundations.ViewModels
 
         private void AcceptCard(CardTransferRequestEventArgs request)
         {
-            var accepted = true;
-
-            // TODO: Decide if the card transfer is valid.
-
+            var foundation = Foundations[request.Card.Suit];
+            var accepted = foundation.AddCard(request.Card);
+            // Respond to the transfer request.
             var result = new CardTransferResponseEventArgs
             {
                 Card = request.Card,
