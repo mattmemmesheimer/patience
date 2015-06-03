@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using Microsoft.Practices.Prism.Mvvm;
 
@@ -16,11 +17,6 @@ namespace Solitaire.Common.Models
         /// Number of tableaus.
         /// </summary>
         public const int NumTableaus = 7;
-
-        /// <summary>
-        /// Number of foundations.
-        /// </summary>
-        public const int NumFoundations = 4;
 
         #endregion
 
@@ -56,7 +52,7 @@ namespace Solitaire.Common.Models
         /// <summary>
         /// List of tableaus.
         /// </summary>
-        public Foundation[] Foundations
+        public IDictionary<Card.Suits, IFoundation> Foundations
         {
             get { return _foundations; }
             set { SetProperty(ref _foundations, value); }
@@ -75,10 +71,10 @@ namespace Solitaire.Common.Models
             Deck = deck;
             CreateTableaus();
             CreateOverflowStack();
-            Foundations = new Foundation[NumFoundations];
-            for (int i = 0; i < NumFoundations; i++)
+            Foundations = new Dictionary<Card.Suits, IFoundation>();
+            foreach (Card.Suits suit in Enum.GetValues(typeof(Card.Suits)))
             {
-                Foundations[i] = new Foundation();
+                Foundations.Add(suit, new Foundation());
             }
         }
 
@@ -106,7 +102,7 @@ namespace Solitaire.Common.Models
         private IDeck _deck;
         private List<Card>[] _tableaus;
         private List<Card> _overflowStack;
-        private Foundation[] _foundations;
+        private IDictionary<Card.Suits, IFoundation> _foundations;
 
         #endregion
     }

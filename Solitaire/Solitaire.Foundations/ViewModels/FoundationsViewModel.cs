@@ -10,7 +10,7 @@ namespace Solitaire.Foundations.ViewModels
     {
         #region Properties
 
-        public List<FoundationViewModel> Foundations { get; set; }
+        public IDictionary<Card.Suits, IFoundation> Foundations { get; set; }
 
         #endregion
 
@@ -23,12 +23,7 @@ namespace Solitaire.Foundations.ViewModels
         public FoundationsViewModel(ISolitaireGameInstance gameInstance, IEventAggregator eventAggregator)
         {
             _eventAggregator = eventAggregator;
-            Foundations = new List<FoundationViewModel>(gameInstance.Foundations.Length);
-            foreach (var foundation in gameInstance.Foundations)
-            {
-                Foundations.Add(new FoundationViewModel(foundation));
-            }
-
+            Foundations = new Dictionary<Card.Suits, IFoundation>(gameInstance.Foundations);
             _eventAggregator.GetEvent<CardTransferRequestEvent>().Subscribe(AcceptCard);
         }
 

@@ -25,7 +25,7 @@ namespace Solitaire.Foundations.ViewModels
 
         #endregion
 
-        public FoundationViewModel(Foundation foundation)
+        public FoundationViewModel(IFoundation foundation)
         {
             _cards = new List<Card>(foundation.Cards);
             CardsEmpty = _cards.Count == 0;

@@ -24,9 +24,9 @@ namespace Solitaire.Common.Models
         List<Card> OverflowStack { get; set; }
 
         /// <summary>
-        /// List of foundations.
+        /// Foundations.
         /// </summary>
-        Foundation[] Foundations { get; set; }
+        IDictionary<Card.Suits, IFoundation> Foundations { get; set; }
     }
 
 }

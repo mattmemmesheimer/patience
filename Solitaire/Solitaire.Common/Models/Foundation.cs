@@ -2,7 +2,7 @@
 
 namespace Solitaire.Common.Models
 {
-    public class Foundation
+    public class Foundation : IFoundation
     {
         public List<Card> Cards { get; set; }
 
