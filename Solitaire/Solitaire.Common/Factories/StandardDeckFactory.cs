@@ -6,7 +6,7 @@ namespace Solitaire.Common.Factories
 {
 
     /// <summary>
-    /// Class representing a standard deck of cards.
+    /// Factory class used to create instances of <see cref="StandardDeck"/>.
     /// </summary>
     public class StandardDeckFactory : IDeckFactory
     {
