@@ -24,10 +24,16 @@ namespace Solitaire.Common.Models
         }
 
         /// <summary>
+        /// Suit of the foundation.
+        /// </summary>
+        public Card.Suits Suit { get; set; }
+
+        /// <summary>
         /// Initializes a new instance of <see cref="Foundation"/>.
         /// </summary>
-        public Foundation()
+        public Foundation(Card.Suits suit)
         {
+            Suit = suit;
             Cards = new List<Card>();
         }
 
@@ -39,6 +45,12 @@ namespace Solitaire.Common.Models
         public bool AddCard(Card card)
         {
             bool accepted;
+
+            // Do not accept a card of a different suit than this foundation.
+            if (card.Suit != Suit)
+            {
+                return false;
+            }
 
             if (Cards.Count == 0)
             {

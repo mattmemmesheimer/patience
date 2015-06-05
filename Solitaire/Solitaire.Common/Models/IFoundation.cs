@@ -18,6 +18,11 @@ namespace Solitaire.Common.Models
         Card TopCard { get; }
 
         /// <summary>
+        /// Suit of the foundation.
+        /// </summary>
+        Card.Suits Suit { get; set; }
+
+        /// <summary>
         /// Attempts to add a card to this foundation.
         /// </summary>
         /// <param name="card">Card to add.</param>

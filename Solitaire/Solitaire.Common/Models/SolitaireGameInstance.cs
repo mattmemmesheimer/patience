@@ -74,7 +74,7 @@ namespace Solitaire.Common.Models
             Foundations = new Dictionary<Card.Suits, IFoundation>();
             foreach (Card.Suits suit in Enum.GetValues(typeof(Card.Suits)))
             {
-                Foundations.Add(suit, new Foundation());
+                Foundations.Add(suit, new Foundation(suit));
             }
         }
 
